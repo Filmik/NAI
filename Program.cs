@@ -38,6 +38,7 @@ namespace DesktopApp1
                 SetForegroundWindow(calculatorHandle);
                 SendKeys.Send("{D}");
             //void jaki_klawisz();
+            dsfdasfasfs
         }
     }
 }

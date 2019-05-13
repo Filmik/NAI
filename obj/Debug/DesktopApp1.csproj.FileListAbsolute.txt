@@ -16,3 +16,9 @@ C:\Users\Filip\source\repos\NAI_projekt\obj\Debug\DesktopApp1.csproj.GenerateRes
 C:\Users\Filip\source\repos\NAI_projekt\obj\Debug\DesktopApp1.csproj.CoreCompileInputs.cache
 C:\Users\Filip\source\repos\NAI_projekt\obj\Debug\DesktopApp1.exe
 C:\Users\Filip\source\repos\NAI_projekt\obj\Debug\DesktopApp1.pdb
+C:\Users\Filip\source\repos\NAI\obj\Debug\DesktopApp1.csprojResolveAssemblyReference.cache
+C:\Users\Filip\source\repos\NAI\obj\Debug\DesktopApp1.Properties.Resources.resources
+C:\Users\Filip\source\repos\NAI\obj\Debug\DesktopApp1.csproj.GenerateResource.Cache
+C:\Users\Filip\source\repos\NAI\obj\Debug\DesktopApp1.csproj.CoreCompileInputs.cache
+C:\Users\Filip\source\repos\NAI\obj\Debug\DesktopApp1.exe
+C:\Users\Filip\source\repos\NAI\obj\Debug\DesktopApp1.pdb
