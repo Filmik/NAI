@@ -41,9 +41,9 @@ namespace DesktopApp1
         public float Fitness { get; private set; }
         private  Random random;
         private Func<T> losowyGen;
-        private Func<float, int> funkcjaFitness;
+        private Func<int, float> funkcjaFitness;
 
-        public Tworzenie_Osobnika(int size, Random random, Func<T> losowyGen, Func<float,int> funkcjaFitness, bool czylosGeny=true)
+        public Tworzenie_Osobnika(int size, Random random, Func<T> losowyGen, Func<int, float> funkcjaFitness, bool czylosGeny=true)
         {
             Geny = new T[size];
             this.random=random;

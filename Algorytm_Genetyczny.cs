@@ -62,11 +62,19 @@ namespace DesktopApp1
         public void ObliczFitness()
         {
             wielkośćFitness = 0;
-            Tworzenie_Osobnika<T> Najlepszy;
+            Tworzenie_Osobnika<T> Najlepszy= Populacja[0];
             for (int i = 0; i < Populacja.Count; i++)
             {
                 wielkośćFitness+=Populacja[i].ObliczFitness(i);
+
+                if (Populacja[i].Fitness > Najlepszy.Fitness)
+                {
+                    Najlepszy = Populacja[i];
+                }
             }
+
+            NajlepszyFitness =Najlepszy.Fitness;
+            Najlepszy.Geny.CopyTo(NajleszeGeny, 0);
         }
 
         private Tworzenie_Osobnika<T> WybieranieRodzica()

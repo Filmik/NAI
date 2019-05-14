@@ -9,7 +9,7 @@ namespace DesktopApp1
 {
     static class Program
 
-        {// Get a handle to an application window.
+    {// Get a handle to an application window.
         [DllImport("USER32.DLL", CharSet = CharSet.Unicode)]
         public static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
         // Activate an application window.
@@ -33,12 +33,13 @@ namespace DesktopApp1
             // a set of calculations
 
             // [STAThread]
-            static void Main()
-        {
-                SetForegroundWindow(calculatorHandle);
-                SendKeys.Send("{D}");
-            //void jaki_klawisz();
-            dsfdasfasfs
+            void Main()
+            {
+              //  SetForegroundWindow(calculatorHandle);
+              //  SendKeys.Send("{D}");
+                //void jaki_klawisz();
+
+            }
         }
     }
 }
