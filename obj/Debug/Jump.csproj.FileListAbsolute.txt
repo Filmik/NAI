@@ -1,0 +1,20 @@
+C:\Users\Olcia\Desktop\Coding\Visual Studio 2017\C#\Jump\Jump\bin\Debug\Jump.exe.config
+C:\Users\Olcia\Desktop\Coding\Visual Studio 2017\C#\Jump\Jump\bin\Debug\Jump.exe
+C:\Users\Olcia\Desktop\Coding\Visual Studio 2017\C#\Jump\Jump\bin\Debug\Jump.pdb
+C:\Users\Olcia\Desktop\Coding\Visual Studio 2017\C#\Jump\Jump\obj\Debug\Jump.csprojAssemblyReference.cache
+C:\Users\Olcia\Desktop\Coding\Visual Studio 2017\C#\Jump\Jump\obj\Debug\Jump.Form1.resources
+C:\Users\Olcia\Desktop\Coding\Visual Studio 2017\C#\Jump\Jump\obj\Debug\Jump.Properties.Resources.resources
+C:\Users\Olcia\Desktop\Coding\Visual Studio 2017\C#\Jump\Jump\obj\Debug\Jump.csproj.GenerateResource.cache
+C:\Users\Olcia\Desktop\Coding\Visual Studio 2017\C#\Jump\Jump\obj\Debug\Jump.csproj.CoreCompileInputs.cache
+C:\Users\Olcia\Desktop\Coding\Visual Studio 2017\C#\Jump\Jump\obj\Debug\Jump.exe
+C:\Users\Olcia\Desktop\Coding\Visual Studio 2017\C#\Jump\Jump\obj\Debug\Jump.pdb
+C:\Users\Filip\Desktop\Jump\Jump\obj\Debug\Jump.csprojAssemblyReference.cache
+C:\Users\Filip\Desktop\Jump\Jump\obj\Debug\Jump.exe
+C:\Users\Filip\Desktop\Jump\Jump\obj\Debug\Jump.pdb
+F:\Jump\Jump\obj\Debug\Jump.csprojAssemblyReference.cache
+F:\Jump\Jump\obj\Debug\Jump.Form1.resources
+F:\Jump\Jump\obj\Debug\Jump.Properties.Resources.resources
+F:\Jump\Jump\obj\Debug\Jump.csproj.GenerateResource.cache
+F:\Jump\Jump\obj\Debug\Jump.csproj.CoreCompileInputs.cache
+F:\Jump\Jump\obj\Debug\Jump.exe
+F:\Jump\Jump\obj\Debug\Jump.pdb

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DesktopApp1
+namespace Jump
 {
     class Algorytm_Genetyczny<T>
     {
@@ -19,12 +19,14 @@ namespace DesktopApp1
         private Random random;
         private float wielkośćFitness;
 
-        public Algorytm_Genetyczny(int populacja, int wielkośćDNA, Random random, Func<T> losowyGen, Func<float, int> funkcjaFitness, float szansamutacji = 0.01f)
+        public Algorytm_Genetyczny(int populacja, int wielkośćDNA, Random random, Func<T> losowyGen, Func<int, float> funkcjaFitness, float szansamutacji = 0.01f)
         {
             Generacja = 1;
             SzansaMutacji = szansamutacji;
             Populacja = new List<Tworzenie_Osobnika<T>>();
             this.random = random;
+
+            NajleszeGeny = new T[wielkośćDNA];
 
             for (int i = 0; i < populacja; i++)
             {
