@@ -11,6 +11,10 @@ using System.Windows.Forms;
 using System.Timers;
 using Timer = System.Timers.Timer;
 
+using WindowsInput.Native;//
+using WindowsInput;//
+using System.Runtime.InteropServices;//
+
 namespace Jump
 {
     public partial class Form1 : Form
@@ -30,56 +34,68 @@ namespace Jump
         int speed;
         int lvlSpeed;
         int score;
+        
 
-
-        string spacja = " ";//co może generować bot, mozna dodac na przyklad a zeby nie wysucal ciongle spacji
-        int populacja = 20;
+        //string spacja = "a  ";//znaki zapisywane do tablicy jako kod akcji bota
+        int populacja = 10;
         float szansamutacji = 0.01f;
-        int wielkośćDNA = 10;
+        int wielkośćDNA =50;
+        int czynowaGena=0;
 
-        private Algorytm_Genetyczny<int> AlgGen;//char
-        private Random los;
-
-        los = new System.Random();
-        AlgGen = new Algorytm_Genetyczny<int>/*char*/(populacja, wielkośćDNA/*dlogość DNA */, los, losowa_spacja, funkcjaFitness, szansamutacji);
-            
-            private char losowa_spacja()
+        private Algorytm_Genetyczny<char> AlgGen;
+        private System.Random los;
+       // private Random los=new Random();
+        
+        void Start_AlgGen()
         {
-            int i = los.Next(spacja.Length);
-            return spacja[i];
+            los = new System.Random();
+            AlgGen = new Algorytm_Genetyczny<char>(populacja, wielkośćDNA, los, losowa_spacja, funkcjaFitness, szansamutacji);
+
+        }
+            private char losowa_spacja()//albo A czyli skok albo B czyli nic
+        {
+           // Random AlubB = new Random();
+            int liczba = los.Next(0, 10);//zrob mniej A wiecej B !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            if (liczba > 5)//A-skok
+            {
+                return 'A';//a-czy-A
+            } else{return 'B';}
+            
         }
 
+        //moze mozna nadpisac fitnes po kazdym przebiegu 
         private float funkcjaFitness(int index)//ktory przebiek byl najlepszy
         {
-            float scoreaaaaa = 0;//jak duzo razy przeskoczyl przez kulke
-            Tworzenie_Osobnika<int> dna = AlgGen.Populacja[index];//był char zamiast int ale trzeba było zmienic dla score
+            float ile_przeskoczen = 0;//jak duzo razy przeskoczyl przez kulke
+            Tworzenie_Osobnika<char> dna = AlgGen.Populacja[index];
             for (int i = 0; i < dna.Geny.Length; i++)
             {
-                dna.Geny[i] = score;//.ToString();gggggggggggggggggggggg
-                scoreaaaaa = dna.Geny[i];//przypisz gdzieś później do genu wynik ile razy przeskoczyl
+                if (dna.Geny[i] < score)
+                {
+                    ile_przeskoczen += 1;
+                }
             }
-            
-            return scoreaaaaa;
+            return ile_przeskoczen;
         }
 
-        
-        /*Player player = new Player();
-        Obstacle obstacle = new Obstacle();
-        DefaultData data = new DefaultData();
-        bool startGame = false;
-        bool keyPress;
-        bool jump;
-        bool touch;
-        bool jumpSuccess;
-        int distanceHorizontal;
-        int distanceVertical;
-        int speed;
-        int lvlSpeed;
-        int score;*/
 
-        public Form1()
+        InputSimulator sim = new InputSimulator();
+      
+       /* private void Form1_KeyDownsssss(object sender, KeyEventArgs e)//dziala naciskanie!!!!!
         {
+            Random qwertlol = new Random();//ranndom dziala
+            int lolollo = qwertlol.Next(0, 6);
+            if (lolollo>6)
+            { sim.Keyboard.KeyPress(VirtualKeyCode.VK_A); }
+
+           // this.randomspcja_asdasdaxsd();//gdzieś dać odwołanie do metody zeby robily sie randomowe spacje
+        }*/
+        
+                public Form1()
+        {
+            Start_AlgGen(); //tu wygeneruj boty zeby je pozniej wywolac
             InitializeComponent();
+            //gdzie wywołanie ????????????????????????????????????????????????
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -92,9 +108,9 @@ namespace Jump
             this.Timer.Stop();
         }
 
-        private void Form1_KeyDown(object sender, KeyEventArgs e)//SPACJA!!!
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Space)
+            if (e.KeyCode == Keys.A)//Space)
             {
                 if (player.yPos == data.playerY && startGame)
                 {
@@ -111,6 +127,19 @@ namespace Jump
 
         private void Timer_Tick(object sender, EventArgs e)
         {
+            Tworzenie_Osobnika<char> Dna = AlgGen.Populacja[czynowaGena];//numer osobnika
+            for (int i = 0; i < Dna.Geny.Length; i++)//dlogosc dna
+            {
+                if(Dna.Geny[i]=='A')//wydobycie genow z osobnika
+                {
+                    sim.Keyboard.KeyPress(VirtualKeyCode.VK_A);
+                }
+                if (Dna.Geny[i] == 'B')
+                {
+                    sim.Keyboard.KeyPress(VirtualKeyCode.VK_B);
+                }
+            }
+            //......
             Touch();
 
             JumpPlayer();
@@ -214,6 +243,13 @@ namespace Jump
 
         private void GameOver()
         {
+            funkcjaFitness(czynowaGena);//zapisz score
+
+            if (czynowaGena == 10)//start nowej generacji, generacja+1
+            {
+                 AlgGen.NowaGenerazja();
+            }
+            //................................
             this.PlayerBox.Image = Jump.Properties.Resources.gameEnd;
 
             startGame = false;
@@ -232,10 +268,10 @@ namespace Jump
             this.ObstacleBox.Enabled = false;
         }
 
-        private void NewGame()//start nowej generacji, generacja+1
+        private void NewGame()
         {
-            AlgGen.NowaGenerazja();
-            //...................
+            czynowaGena += 1;
+            //.....................
             keyPress = false;
             jump = false;
             jumpSuccess = false;
@@ -268,7 +304,6 @@ namespace Jump
 
             Count();
         }
-
         async Task Count()
         {
             this.Timer.Stop();
@@ -321,6 +356,16 @@ namespace Jump
             startGame = true;
 
             this.Timer.Start();
+            //.................
+            //wywolanie osobnika z obecnej populacji
+            /*Tworzenie_Osobnika<char> Dna = AlgGen.Populacja[czynowaGena];//numer osobnika
+            for (int i = 0; i < Dna.Geny.Length; i++)//dlogosc dna
+            {
+                if(Dna.Geny[i]=='A')//wydobycie genow z osobnika
+                {
+                    sim.Keyboard.KeyPress(VirtualKeyCode.VK_A);
+                }
+            }*/
         }
 
         private void SpeedLvlText_Click(object sender, EventArgs e)

@@ -46,10 +46,10 @@ namespace Jump
 
             for (int i = 0; i < Populacja.Count; i++)
             {
-                Tworzenie_Osobnika<T> rodzic1= WybieranieRodzica();
-                Tworzenie_Osobnika<T> rodzic2= WybieranieRodzica();
+                Tworzenie_Osobnika<T> rodzic1 = WybieranieRodzica();
+                Tworzenie_Osobnika<T> rodzic2 = WybieranieRodzica();
 
-                Tworzenie_Osobnika<T> dziecko=rodzic1.Mieszanie(rodzic2);
+                Tworzenie_Osobnika<T> dziecko = rodzic1.Mieszanie(rodzic2);
 
                 dziecko.Mutacja(SzansaMutacji);
 
