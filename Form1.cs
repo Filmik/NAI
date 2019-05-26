@@ -37,10 +37,11 @@ namespace Jump
         
 
         //string spacja = "a  ";//znaki zapisywane do tablicy jako kod akcji bota
-        int populacja = 10;
-        float szansamutacji = 0.01f;
-        int wielkośćDNA =50;
+        int populacja = 20;
+        float szansamutacji = 0.05f;
+        int wielkośćDNA =100;
         int czynowaGena=0;
+        int wywolanieDNA=0;
 
         private Algorytm_Genetyczny<char> AlgGen;
         private System.Random los;
@@ -49,14 +50,14 @@ namespace Jump
         void Start_AlgGen()
         {
             los = new System.Random();
-            AlgGen = new Algorytm_Genetyczny<char>(populacja, wielkośćDNA, los, losowa_spacja, funkcjaFitness, szansamutacji);
+            AlgGen = new Algorytm_Genetyczny<char>(populacja+1, wielkośćDNA, los, losowa_spacja, funkcjaFitness, szansamutacji);
 
         }
             private char losowa_spacja()//albo A czyli skok albo B czyli nic
         {
            // Random AlubB = new Random();
             int liczba = los.Next(0, 10);//zrob mniej A wiecej B !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            if (liczba > 5)//A-skok
+            if (liczba > 6)//A-skok
             {
                 return 'A';//a-czy-A
             } else{return 'B';}
@@ -67,14 +68,15 @@ namespace Jump
         private float funkcjaFitness(int index)//ktory przebiek byl najlepszy
         {
             float ile_przeskoczen = 0;//jak duzo razy przeskoczyl przez kulke
-            Tworzenie_Osobnika<char> dna = AlgGen.Populacja[index];
-            for (int i = 0; i < dna.Geny.Length; i++)
-            {
-                if (dna.Geny[i] < score)
+            Tworzenie_Osobnika<char> dna = AlgGen.Populacja[index];//error
+            for (int i = 0; i < dna.Geny.Length; i++) //
+            {//
+                // if (dna.Geny[i] < score) //bez sensu przypisuje fitnes do argumetow osobnika
+                if (ile_przeskoczen < score)
                 {
-                    ile_przeskoczen += 1;
+                    ile_przeskoczen +=1;
                 }
-            }
+            }//
             return ile_przeskoczen;
         }
 
@@ -95,7 +97,6 @@ namespace Jump
         {
             Start_AlgGen(); //tu wygeneruj boty zeby je pozniej wywolac
             InitializeComponent();
-            //gdzie wywołanie ????????????????????????????????????????????????
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -124,13 +125,17 @@ namespace Jump
             if (e.KeyCode == Keys.Enter && this.NewGameLabel.Enabled)//ENTER- nowa generacja
                 NewGame();
         }
-
+        
         private void Timer_Tick(object sender, EventArgs e)
         {
-            Tworzenie_Osobnika<char> Dna = AlgGen.Populacja[czynowaGena];//numer osobnika
+            //if (czynowaGena<3)
+            // {
+            //wywolanieDNA = wywolanieDNA + 1;
+            //czynowaGena=3 osobnik 3 chyba nie ma dna
+            Tworzenie_Osobnika<char> Dna = AlgGen.Populacja[czynowaGena];//numer osobnika //System.ArgumentOutOfRangeException: „Indeks był spoza zakresu. Musi mieć wartość nieujemną i mniejszą niż rozmiar kolekcji.Nazwa parametru: index”
             for (int i = 0; i < Dna.Geny.Length; i++)//dlogosc dna
             {
-                if(Dna.Geny[i]=='A')//wydobycie genow z osobnika
+                if (Dna.Geny[i] == 'A')//wydobycie genow z osobnika
                 {
                     sim.Keyboard.KeyPress(VirtualKeyCode.VK_A);
                 }
@@ -139,6 +144,7 @@ namespace Jump
                     sim.Keyboard.KeyPress(VirtualKeyCode.VK_B);
                 }
             }
+            //}
             //......
             Touch();
 
@@ -243,11 +249,15 @@ namespace Jump
 
         private void GameOver()
         {
-            funkcjaFitness(czynowaGena);//zapisz score
-
-            if (czynowaGena == 10)//start nowej generacji, generacja+1
+            if (czynowaGena< 20)//populacja
             {
-                 AlgGen.NowaGenerazja();
+                funkcjaFitness(czynowaGena);//zapisz score
+            }
+            if (czynowaGena == 20)//start nowej generacji, generacja+1, populacja
+            {
+                czynowaGena = 0;
+                AlgGen.NowaGenerazja();
+              //  Start_AlgGen();
             }
             //................................
             this.PlayerBox.Image = Jump.Properties.Resources.gameEnd;
@@ -266,6 +276,9 @@ namespace Jump
 
             this.Timer.Stop();
             this.ObstacleBox.Enabled = false;
+            //.....................................
+            //System.Threading.Thread.Sleep(5000);//czeka 5 sec
+            sim.Keyboard.KeyPress(VirtualKeyCode.RETURN);
         }
 
         private void NewGame()
@@ -369,6 +382,11 @@ namespace Jump
         }
 
         private void SpeedLvlText_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
         {
 
         }
