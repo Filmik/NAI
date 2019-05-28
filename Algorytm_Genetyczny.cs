@@ -16,6 +16,7 @@ namespace Jump
 
         public float SzansaMutacji;
 
+        private List<Tworzenie_Osobnika<T>> nowaPopulacja;
         private Random random;
         private float wielkośćFitness;
 
@@ -23,7 +24,8 @@ namespace Jump
         {
             Generacja = 1;
             SzansaMutacji = szansamutacji;
-            Populacja = new List<Tworzenie_Osobnika<T>>();
+            Populacja = new List<Tworzenie_Osobnika<T>>(populacja);
+            nowaPopulacja = new List<Tworzenie_Osobnika<T>>(populacja);
             this.random = random;
 
             NajleszeGeny = new T[wielkośćDNA];
@@ -42,7 +44,7 @@ namespace Jump
 
             ObliczFitness();
 
-            List<Tworzenie_Osobnika<T>> nowaPopulacja = new List<Tworzenie_Osobnika<T>>();
+            nowaPopulacja.Clear() ;
 
             for (int i = 0; i < Populacja.Count; i++)
             {
@@ -55,8 +57,9 @@ namespace Jump
 
                 nowaPopulacja.Add(dziecko);
             }
-
+            List<Tworzenie_Osobnika<T>> tymczasowa_lista = Populacja;//
             Populacja = nowaPopulacja;
+            nowaPopulacja= tymczasowa_lista;//
 
             Generacja++;
         }

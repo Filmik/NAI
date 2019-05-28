@@ -20,7 +20,7 @@ namespace Jump
             Geny = new T[size];
             this.random=random;
             this.losowyGen = losowyGen;
-            this.funkcjaFitness = funkcjaFitness;//jak to przypisywanie dzialalo
+            this.funkcjaFitness = funkcjaFitness;
 
             if (czylosGeny)//nie marnuje czasu na losowanie genow jesli i tak je zamienimy
             {

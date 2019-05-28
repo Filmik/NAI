@@ -35,3 +35,16 @@ C:\Users\Filip\Desktop\Jump\Jump\bin\Debug\Jump.pdb
 C:\Users\Filip\Desktop\Jump\Jump\bin\Debug\WindowsInput.dll
 C:\Users\Filip\Desktop\Jump\Jump\bin\Debug\WindowsInput.xml
 C:\Users\Filip\Desktop\Jump\Jump\obj\Debug\Jump.csproj.CopyComplete
+C:\Users\Filip\source\repos\NAI_projekt\bin\Debug\Jump.exe.config
+C:\Users\Filip\source\repos\NAI_projekt\bin\Debug\Jump.exe
+C:\Users\Filip\source\repos\NAI_projekt\bin\Debug\Jump.pdb
+C:\Users\Filip\source\repos\NAI_projekt\bin\Debug\WindowsInput.dll
+C:\Users\Filip\source\repos\NAI_projekt\bin\Debug\WindowsInput.xml
+C:\Users\Filip\source\repos\NAI_projekt\obj\Debug\Jump.csprojAssemblyReference.cache
+C:\Users\Filip\source\repos\NAI_projekt\obj\Debug\Jump.Form1.resources
+C:\Users\Filip\source\repos\NAI_projekt\obj\Debug\Jump.Properties.Resources.resources
+C:\Users\Filip\source\repos\NAI_projekt\obj\Debug\Jump.csproj.GenerateResource.cache
+C:\Users\Filip\source\repos\NAI_projekt\obj\Debug\Jump.csproj.CoreCompileInputs.cache
+C:\Users\Filip\source\repos\NAI_projekt\obj\Debug\Jump.csproj.CopyComplete
+C:\Users\Filip\source\repos\NAI_projekt\obj\Debug\Jump.exe
+C:\Users\Filip\source\repos\NAI_projekt\obj\Debug\Jump.pdb

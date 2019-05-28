@@ -44,8 +44,8 @@
             this.SpeedLvl = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.Bot_NR = new System.Windows.Forms.Label();
+            this.Gen = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ObstacleBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PlayerBox)).BeginInit();
             this.SuspendLayout();
@@ -184,27 +184,27 @@
             this.label2.Text = "Gen:";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
-            // label3
+            // Bot_NR
             // 
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Segoe Print", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.ForeColor = System.Drawing.Color.Yellow;
-            this.label3.Location = new System.Drawing.Point(410, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(58, 38);
-            this.label3.TabIndex = 13;
-            this.label3.Text = "0";
+            this.Bot_NR.BackColor = System.Drawing.Color.Transparent;
+            this.Bot_NR.Font = new System.Drawing.Font("Segoe Print", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Bot_NR.ForeColor = System.Drawing.Color.Yellow;
+            this.Bot_NR.Location = new System.Drawing.Point(410, 0);
+            this.Bot_NR.Name = "Bot_NR";
+            this.Bot_NR.Size = new System.Drawing.Size(58, 38);
+            this.Bot_NR.TabIndex = 13;
+            this.Bot_NR.Text = "0";
             // 
-            // label4
+            // Gen
             // 
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Segoe Print", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.ForeColor = System.Drawing.Color.Yellow;
-            this.label4.Location = new System.Drawing.Point(568, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(58, 38);
-            this.label4.TabIndex = 14;
-            this.label4.Text = "0";
+            this.Gen.BackColor = System.Drawing.Color.Transparent;
+            this.Gen.Font = new System.Drawing.Font("Segoe Print", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Gen.ForeColor = System.Drawing.Color.Yellow;
+            this.Gen.Location = new System.Drawing.Point(568, 0);
+            this.Gen.Name = "Gen";
+            this.Gen.Size = new System.Drawing.Size(58, 38);
+            this.Gen.TabIndex = 14;
+            this.Gen.Text = "0";
             // 
             // Form1
             // 
@@ -213,8 +213,8 @@
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(800, 308);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.Gen);
+            this.Controls.Add(this.Bot_NR);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.SpeedLvl);
@@ -255,8 +255,8 @@
         private System.Windows.Forms.Label SpeedLvl;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label Bot_NR;
+        private System.Windows.Forms.Label Gen;
     }
 }
 
